@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import { text, integer, sqliteTable } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable('users', {
@@ -30,4 +29,10 @@ export const sessionBooking = sqliteTable('session_booking', {
   sessionDate: text('session_date'),
   sessionType: text('session_type').default("GPT"),
   sessionTopic: text('session_topic'),
+})
+
+export const sessions = sqliteTable('sessions', {
+  sessionID: integer('session_id').primaryKey({autoIncrement: true}),
+  sessionTopic: text('session_topic'),
+  sessionType: text('session_type'),
 })
